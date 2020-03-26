@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="取消"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-slides #registerSlides >
+    <ion-slide>
+      <form novalidate >
+        <ion-list>
+          <ion-item lines="none">
+            <ion-label>注册</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+            <ion-label>手机号</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input name="phone" type="number" placeholder="仅支持中国大陆手机号" required
+                       pattern="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,3,5-9]))\d{8}$"
+                       >
+            </ion-input>
+          </ion-item>  
+        </ion-list>
+        <div padding-horizontal>
+          <ion-button type="submit" expand="full" color="primary" (click) = "sendVerifyCode()">
+              获取验证码
+          </ion-button>
+        </div>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form novalidate >
+      <ion-list>
+        <ion-item lines="none">
+          请输入验证码
+        </ion-item>
+        <ion-item lines="none"> 
+          验证码已发送到
+        </ion-item>
+        <ion-item>
+          <ion-input name="verifycode" type="text" placehodler="四位验证码"></ion-input>
+        </ion-item>
+      </ion-list> 
+      <ion-button type="submit" expand="full" color="primary" (click) = "sendVerifyCode()">
+        重新获取
+        </ion-button>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form >
+        <ion-list>
+          <ion-item lines="none">
+            <ion-label>请设置密码</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input name="password" type="password" required="true"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>再次输入密码</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input name="password" type="password" required="true"></ion-input>
+          </ion-item>
+        </ion-list>
+          <ion-button type="submit" expand="full" color="primary" routerLink="/login">
+            完成注册
+          </ion-button>  
+      </form>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
