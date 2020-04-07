@@ -1,3 +1,11 @@
-ion-content ion-toolbar {
-  --background: translucent;
+
+ion-header ion-toolbar ion-grid ion-row ion-col ion-button{
+  --color:translucent;
+}
+
+.segment {
+  padding-inline-start: 3%;
+}
+.add {
+  padding-inline-start: 70px;
 }

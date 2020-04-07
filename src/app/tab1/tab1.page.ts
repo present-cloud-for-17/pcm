@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { PopoverComponent } from './component/popover/popover.component';
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +8,24 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor() {}
+  private segment: any = 1;
+  popover: any;
+  constructor(public popoverController: PopoverController) {
+    this.popover = null;
+  }
+  clickcreate() {
+    this.segment = 1;
+  }
+  clickjoin() {
+    this.segment = 2;
+  }
+  async presentPop(e: any) {
+    this.popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: e,
+      translucent: true,
+    });
+    return await this.popover.present();
+  }
 
 }
