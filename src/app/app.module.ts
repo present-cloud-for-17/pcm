@@ -9,11 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TabsPageModule } from './tabs/tabs.module';
 
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
   entryComponents: [PopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, TabsPageModule],
   providers: [
     StatusBar,
     SplashScreen,

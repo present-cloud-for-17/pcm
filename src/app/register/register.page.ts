@@ -1,3 +1,4 @@
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { UUID } from 'angular2-uuid';
@@ -27,9 +28,10 @@ export class RegisterPage implements OnInit {
     passport: '',
   };
   @ViewChild('registerSlides', {static: true}) registerSlides: IonSlides;
-  constructor() { }
+  constructor(public localStorage: LocalStorageService) { }
   ngOnInit() {
     this.registerSlides.lockSwipes(true);
+    this.localStorage.set('hasRole', false);
   }
 
   onNext() {

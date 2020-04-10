@@ -1,26 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-segment>
-            <ion-segment-button name="create" onclick= "clickcreate()">
-              <ion-label>我创建的</ion-label>
-            </ion-segment-button>
-            <ion-segment-button name="join" (click) = "clickjoin()">
-              <ion-label>我加入的</ion-label>
-            </ion-segment-button>
-          </ion-segment>
-        </ion-col>
-        <ion-col>
-          <div class="add">
-          <ion-button size="small" fill="outline" style="--border-color:white" (click)="presentPop($event)">
-            <ion-icon name="add-outline"></ion-icon>
-          </ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <ion-toolbar collapse="true">
+    <ion-segment>
+      <ion-segment-button name="create" onclick= "clickcreate()">
+        <ion-label>我创建的</ion-label>
+      </ion-segment-button>
+      <ion-segment-button name="join" (click) = "clickjoin()">
+        <ion-label>我加入的</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+        
+    <div class="add">
+      <ion-button slot="icon-only" size="small" fill="clear" (click)="presentPop($event)">
+        <ion-icon name="add-outline"></ion-icon>
+       </ion-button>
+    </div>   
   </ion-toolbar>
 </ion-header>
 
