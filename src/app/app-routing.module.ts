@@ -34,9 +34,9 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'member-list',
-    loadChildren: () => import('./tab1/pages/member-list/member-list.module').then( m => m.MemberListPageModule)
-  }
+    path: 'class-tabs',
+    loadChildren: () => import('./tab1/pages/class-tabs/class-tabs.module').then( m => m.ClassTabsPageModule)
+  },
 
 ];
 @NgModule({

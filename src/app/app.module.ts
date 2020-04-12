@@ -1,3 +1,4 @@
+import { ClassTabsPageModule } from './tab1/pages/class-tabs/class-tabs.module';
 import { PopoverComponent } from './tab1/component/popover/popover.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,7 @@ import { TabsPageModule } from './tabs/tabs.module';
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
   entryComponents: [PopoverComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, TabsPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, TabsPageModule, ClassTabsPageModule],
   providers: [
     StatusBar,
     SplashScreen,
