@@ -37,6 +37,10 @@ const routes: Routes = [
     path: 'class-tabs',
     loadChildren: () => import('./tab1/pages/class-tabs/class-tabs.module').then( m => m.ClassTabsPageModule)
   },
+  {
+    path: 'gesture-lock',
+    loadChildren: () => import('./tab1/pages/gesture-lock/gesture-lock.module').then( m => m.GestureLockPageModule)
+  },
 
 ];
 @NgModule({
