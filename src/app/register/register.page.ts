@@ -1,37 +1,36 @@
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { UUID } from 'angular2-uuid';
+import { AuthenticationCodeService } from '../services/authentication-code.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  // private accessKeyId: string = 'LTAI4FnqEaWxpbTSZFhyoCqs';
-  // private accessSecret: string = 'UpbsdWlZvfDlauXlnTe46PoHgyg8j1';
-  // public date = new Date().toTimeString();
-  // uuid = UUID.UUID();
-  // private paras: any = {
-  //   SignatureMethod: 'HMAC-SHA1',
-  //   SignatureNonce: this.uuid,
-  //   AccessKeyId: this.accessKeyId,
-  //   SignatureVersion: '1.0',
-  //   Timestamp: this.date,
-  //   Format: 'XML',
-  // }
-  // msgApi: any = 'https://dysmsapi.aliyuncs.com/?Action=SendSms&<公共请求参数>';
+
   public slideIndex: any = 0;
-  private code: any = '';
+  private verifyCode: any = {
+    verifyCodeTips: '发送验证码',
+    code : '',
+    confirmCode: '',
+    length: 4,
+    time: 60,
+    disable: false,
+    fail: false,
+  };
   public user: any = {
     phone: '',
     passport: '',
+    confirmPassword: '',
+    role: '',
   };
   @ViewChild('registerSlides', {static: true}) registerSlides: IonSlides;
-  constructor(public localStorage: LocalStorageService) { }
+  intervalFun: any;
+  constructor(public localStorage: LocalStorageService,
+              public authenticationCodeService: AuthenticationCodeService) { }
   ngOnInit() {
     this.registerSlides.lockSwipes(true);
-    this.localStorage.set('hasRole', false);
   }
 
   onNext() {
@@ -42,14 +41,46 @@ export class RegisterPage implements OnInit {
   }
 
   sendVerifyCode() {
+    this.verifyCode.code = this.authenticationCodeService.createCode(this.verifyCode.length);
+    this.verifyCode.disable = true;
+    this.intervalFun = setInterval(() => {
+      this.countDown();
+    }, 1000);
     this.onNext();
   }
 
-  createCode(count: number): string {
-    for (let i = 0; i < count; i++) {
-      const num = Math.floor(Math.random() * 10);
-      this.code += num.toString();
+  resend() {
+    this.verifyCode.code = this.authenticationCodeService.createCode(this.verifyCode.length);
+    this.verifyCode.disable = true;
+    this.intervalFun = setInterval(() => {
+      this.countDown();
+    }, 1000);
+  }
+
+  countDown() {
+    if (this.verifyCode.time === 0) {
+      this.verifyCode.time = 60;
+      this.verifyCode.verifyCodeTips = '重新发送';
+      this.verifyCode.disable = false;
+      clearInterval(this.intervalFun);
+      return;
+    } else {
+      this.verifyCode.time--;
     }
-    return this.code;
+    this.verifyCode.verifyCodeTips = this.verifyCode.time + 's';
+  }
+
+  checkVerifyCode() {
+    if (this.verifyCode.confirmCode == this.verifyCode.code) {
+      this.onNext();
+    }
+  }
+
+  checkRole(e) {
+    this.user.role = e.detail.value;
+  }
+
+  saveUser() {
+    this.localStorage.set('user', this.user);
   }
 }

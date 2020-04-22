@@ -21,7 +21,7 @@
         </ion-item>
         <ion-item>
           <ion-input name="phone" type="number" placeholder="仅支持中国大陆手机号" required
-              pattern="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,3,5-9]))\d{8}$"> 
+              pattern="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,3,5-9]))\d{8}$" [(ngModel)]="phone"> 
           </ion-input>
         </ion-item>
       </ion-list>
@@ -30,7 +30,7 @@
             获取验证码
         </ion-button>
       </div>
-      <a href="" style="padding-inline-start: 40%;">注册账号</a>
+      <a href="/register" style="padding-inline-start: 40%;">注册账号</a>
     </form>
   </div>
 
@@ -38,16 +38,17 @@
     <form>
       <ion-list>
         <ion-item lines="none">
-          请输入验证码
+          验证码已发送到<div style="color: rgb(19, 106, 177);">{{phone}}</div>
         </ion-item>
         <ion-item lines="none"> 
-          验证码已发送到
+          请输入验证码<div style="color: rgb(19, 106, 177);">{{verifyCode.code}}</div>
         </ion-item>
         <ion-item>
-          <ion-input name="verifycode" type="text" placehodler="四位验证码"></ion-input>
+          <ion-input name="code" type="text" placehodler="四位验证码" 
+          [(ngModel)]="verifyCode.confirmCode" (ionChange)="checkVerifyCode($event)"></ion-input>
         </ion-item>
       </ion-list> 
-      <ion-button type="submit" expand="full" color="primary" >
+      <ion-button type="submit" expand="full" color="primary" (click) = "resend()">
         重新获取
       </ion-button>
     </form>
@@ -62,8 +63,8 @@
           <ion-label>账号</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input name="phone" type="number" placeholder="请输入手机号" required
-                       pattern="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,3,5-9]))\d{8}$">
+          <ion-input name="phone" type="number" placeholder="请输入手机号" [(ngModel)]="phone" required
+                       pattern="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,3,5-9]))\d{8}$" >
             </ion-input>
         </ion-item>
         <ion-item lines="none">
@@ -71,19 +72,19 @@
           <ion-label>密码</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input name="password" type="password" placeholder="请输入密码" required="true">
+          <ion-input name="password" type="password" placeholder="请输入密码" required="true" [(ngModel)]="password">
           </ion-input>  
         </ion-item>
       </ion-list>
       <div padding-horizontal>
-        <ion-button type="submit" expand="full" color="primary" [routerLink]="['/home']">
+        <ion-button type="submit" expand="full" color="primary" (click)="check()">
             登录
         </ion-button>
       </div>
       <ion-grid>
         <ion-row>
           <ion-col>
-            <a style="padding-inline-start: 45%;" href="">注册账号</a>
+            <a style="padding-inline-start: 45%;" href="/register">注册账号</a>
           </ion-col>
           <ion-col>
             <a style="padding-inline-end: 45%;" href="">忘记密码</a>

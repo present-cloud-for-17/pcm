@@ -41,6 +41,22 @@ const routes: Routes = [
     path: 'gesture-lock',
     loadChildren: () => import('./tab1/pages/gesture-lock/gesture-lock.module').then( m => m.GestureLockPageModule)
   },
+  {
+    path: 'start',
+    loadChildren: () => import('./tab1/pages/SignIn/start/start.module').then( m => m.StartPageModule)
+  },
+  {
+    path: 'result',
+    loadChildren: () => import('./tab1/pages/SignIn/result/result.module').then( m => m.ResultPageModule)
+  },
+  {
+    path: 'statistic',
+    loadChildren: () => import('./tab1/pages/SignIn/statistic/statistic.module').then( m => m.StatisticPageModule)
+  },
+  {
+    path: 'sign-in',
+    loadChildren: () => import('./tab1/pages/SignIn/sign-in/sign-in.module').then( m => m.SignInPageModule)
+  },
 
 ];
 @NgModule({

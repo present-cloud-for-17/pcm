@@ -1,3 +1,5 @@
+import { COURSES } from './../mock/mock-courses';
+import { Course } from './../services/course';
 import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from './component/popover/popover.component';
@@ -10,6 +12,7 @@ import { PopoverComponent } from './component/popover/popover.component';
 export class Tab1Page {
   private segment: any = 1;
   popover: any;
+  private course = COURSES;
   constructor(public popoverController: PopoverController) {
     this.popover = null;
   }
