@@ -1,9 +1,81 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>DetailClass</ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        班课
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="padding-left: 25%;">班课详情</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="role == teacher">
+    <ion-list>
+      <ion-item>
+        <ion-label>班课号</ion-label>
+        <ion-note slot="end">99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>允许加入</ion-label>
+        <ion-toggle checked></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>班课名称</ion-label>
+        <ion-input placeholder="未设置"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>学期</ion-label>
+        <ion-input placeholder="未设置"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>学习要求</ion-label>
+        <ion-input placeholder="未设置"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>教学进度</ion-label>
+        <ion-input placeholder="未设置"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>考试安排</ion-label>
+        <ion-input placeholder="未设置"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full">结束班课</ion-button>
+  </div>
 
+  <div *ngIf="role !== teacher">
+    <ion-list>
+      <ion-item>
+        <ion-label>班课号</ion-label>
+        <ion-note slot="end" >99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>班课名称</ion-label>
+        <ion-note slot="end" >99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>教师</ion-label>
+        <ion-note slot="end" >99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>学校院系</ion-label>
+        <ion-note slot="end" >99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>学习要求</ion-label>
+        <ion-note slot="end" >99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>教学进度</ion-label>
+        <ion-note slot="end">99</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>考试安排</ion-label>
+        <ion-note slot="end">99</ion-note>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full">退出班课</ion-button>
+  </div>
 </ion-content>
