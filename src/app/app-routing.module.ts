@@ -57,6 +57,18 @@ const routes: Routes = [
     path: 'sign-in',
     loadChildren: () => import('./tab1/pages/SignIn/sign-in/sign-in.module').then( m => m.SignInPageModule)
   },
+  {
+    path: 'stu-sign-in',
+    loadChildren: () => import('./tab1/pages/SignIn/stu-sign-in/stu-sign-in.module').then( m => m.StuSignInPageModule)
+  },
+  {
+    path: 'stu-gesture-lock',
+    loadChildren: () => import('./tab1/pages/SignIn/stu-gesture-lock/stu-gesture-lock.module').then( m => m.StuGestureLockPageModule)
+  },
+  {
+    path: 'tea-sign-result',
+    loadChildren: () => import('./tab1/pages/SignIn/tea-sign-result/tea-sign-result.module').then( m => m.TeaSignResultPageModule)
+  },
 
 ];
 @NgModule({
