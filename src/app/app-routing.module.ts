@@ -68,7 +68,23 @@ const routes: Routes = [
   {
     path: 'tea-sign-result',
     loadChildren: () => import('./tab1/pages/SignIn/tea-sign-result/tea-sign-result.module').then( m => m.TeaSignResultPageModule)
+  },  {
+    path: 'unopen',
+    loadChildren: () => import('./unopen/unopen.module').then( m => m.UnopenPageModule)
   },
+  {
+    path: 'user-info',
+    loadChildren: () => import('./tab3/pages/user-info/user-info.module').then( m => m.UserInfoPageModule)
+  },
+  {
+    path: 'to-friend',
+    loadChildren: () => import('./tab3/pages/to-friend/to-friend.module').then( m => m.ToFriendPageModule)
+  },
+  {
+    path: 'setting',
+    loadChildren: () => import('./tab3/pages/setting/setting.module').then( m => m.SettingPageModule)
+  },
+
 
 ];
 @NgModule({
