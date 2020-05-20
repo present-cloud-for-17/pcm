@@ -9,42 +9,12 @@ const routes: Routes = [
     component: ClassTabsPage,
     children: [
       {
-        path: 'activity',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../activity-class/activity-class.module').then(m => m.ActivityClassPageModule)
-          }
-        ]
-      },
-      {
         path: 'member',
         children: [
           {
             path: '',
             loadChildren: () =>
               import('../member-list/member-list.module').then(m => m.MemberListPageModule)
-          }
-        ]
-      },
-      {
-        path: 'resource',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../resource-class/resource-class.module').then(m => m.ResourceClassPageModule)
-          }
-        ]
-      },
-      {
-        path: 'message',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../message-list/message-list.module').then(m => m.MessageListPageModule)
           }
         ]
       },
@@ -60,14 +30,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/ClassTabs/activity',
+        redirectTo: '/ClassTabs/member',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/ClassTabs/activity',
+    redirectTo: '/ClassTabs/member',
     pathMatch: 'full'
   }
 ];
