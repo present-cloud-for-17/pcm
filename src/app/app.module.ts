@@ -7,11 +7,13 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TabsPageModule } from './tabs/tabs.module';
 import { IonicStorageModule} from '@ionic/storage';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
   entryComponents: [PopoverComponent],
@@ -20,10 +22,13 @@ import { IonicStorageModule} from '@ionic/storage';
             AppRoutingModule,
             TabsPageModule,
             ClassTabsPageModule,
+            NgxQRCodeModule,
             IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
+    QRScanner,
+    Geolocation ,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

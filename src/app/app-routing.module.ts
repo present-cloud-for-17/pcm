@@ -84,6 +84,10 @@ const routes: Routes = [
     path: 'setting',
     loadChildren: () => import('./tab3/pages/setting/setting.module').then( m => m.SettingPageModule)
   },
+  {
+    path: 'creatcode',
+    loadChildren: () => import('./creatcode/creatcode.module').then( m => m.CreatcodePageModule)
+  },
 
 
 ];

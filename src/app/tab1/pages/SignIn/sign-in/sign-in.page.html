@@ -15,7 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button [routerLink]="['/start']" fill="clear" style="padding-inline-start:10%">
+        <ion-button [routerLink]="['/start']" fill="clear" style="padding-inline-start:10%" (click)='getLocation()'>
           <ion-icon name="person-outline" size="large"></ion-icon>
         </ion-button>
       </ion-col>
