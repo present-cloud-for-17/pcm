@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons collapse="true" slot="start">
+      <ion-back-button text="返回"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="padding-left:20%;">我的二维码</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding-left:35%;">
+    <ngx-qrcode 
+    [elementType]="elementType" 
+    [value] = "value"
+    cssClass = "aclass"
+    alt="Demo QR Code"
+    errorCorrectionLevel = "L">
+    </ngx-qrcode>
+  </div>
+</ion-content>

@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" color="light" routerLink="/login">
+        取消
+    </ion-button>
+    <ion-title style='text-align:center'>注册</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-slides #registerSlides >
+    <ion-slide>
+      <form novalidate >
+        <ion-list>
+          <ion-item lines="none">
+            <ion-label>注册</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-icon name="phone-portrait-outline"></ion-icon>
+            <ion-label>手机号</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="user.phone" name="phone" type="number" placeholder="仅支持中国大陆手机号" required
+                       pattern="^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,3,5-9]))\d{8}$"
+                       >
+            </ion-input>
+          </ion-item>  
+        </ion-list>
+        <div padding-horizontal>
+          <ion-button type="submit" expand="full" color="primary" (click) = "sendVerifyCode()">
+              获取验证码
+          </ion-button>
+        </div>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form novalidate >
+      <ion-list>
+        <ion-item lines="none">
+          验证码已发送到<div style="color: rgb(19, 106, 177);">{{user.phone}}</div>
+        </ion-item>
+        <ion-item lines="none"> 
+          请输入验证码<div style="color: rgb(19, 106, 177);">{{verifyCode.code}}</div>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-input  name="authcode" type="number" [(ngModel)]="verifyCode.confirmCode" (ionChange)="checkVerifyCode($event)"></ion-input>
+        </ion-item>
+      </ion-list> 
+      <ion-button type="submit" expand="full" color="primary" (click) = "resend()">
+        重新获取
+        </ion-button>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form >
+        <ion-list>
+          <ion-item lines="none">
+            <ion-label>请设置密码</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input name="password" type="password" required="true" [(ngModel)]="user.passport"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>再次输入密码</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-input name="password" type="password" required="true" [(ngModel)]="user.confirmPassword"></ion-input>
+          </ion-item>
+          <ion-list>
+            <ion-radio-group (ionChange)="checkRole($event)">
+              <ion-list-header>
+                <ion-label>请选择身份</ion-label>
+              </ion-list-header>
+          
+              <ion-item>
+                <ion-label>学生</ion-label>
+                <ion-radio slot="start" value="student" ></ion-radio>
+              </ion-item>
+          
+              <ion-item>
+                <ion-label>教师</ion-label>
+                <ion-radio slot="start" value="teacher" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-list>
+          <ion-button type="submit" expand="full" color="primary" routerLink="/login" (click)="saveUser()">
+            完成注册
+          </ion-button>  
+      </form>
+    </ion-slide>
+  </ion-slides> -->
+  <div>
+    <form>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-icon name="person-sharp"></ion-icon>
+          <ion-label>账号</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input name="userNumber" type="text" placeholder="请输入账号" required="true" [(ngModel)]="userNumber" >
+            </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="person-circle-sharp"></ion-icon>
+          <ion-label>用户名</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input name="userName" type="text" placeholder="请输入用户名" required="true" [(ngModel)]="userName" >
+            </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="phone-portrait-sharp"></ion-icon>
+          <ion-label>手机号</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input name="userPhone" type="text" placeholder="请输入手机号" required="true" [(ngModel)]="userPhone" >
+            </ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="mail-sharp"></ion-icon>
+          <ion-label>邮箱</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-input name="userMail" type="text" placeholder="请输入邮箱" required="true" [(ngModel)]="userMail" >
+            </ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button type="submit" expand="full" color="primary" routerLink="/login" (click)="saveUser()">
+        完成注册
+      </ion-button>  
+    </form>
+  </div>
+</ion-content>

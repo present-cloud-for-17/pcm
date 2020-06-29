@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar collapse="true">
+    <ion-grid>
+      <ion-row>
+        <ion-col width="50%"> 
+    <ion-segment>
+      <ion-segment-button name="create" (click)= "clickcreate()">
+        <ion-label>我创建的</ion-label>
+      </ion-segment-button>
+      <ion-segment-button name="join" (click) = "clickjoin()">
+        <ion-label>我加入的</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-col>
+  <ion-col>
+    <div class="add">
+      <ion-button slot="icon-only" size="small" fill="clear" (click)="presentPop($event)">
+        <ion-icon name="add-outline"></ion-icon>
+       </ion-button>
+    </div>
+  </ion-col> 
+      </ion-row>
+    </ion-grid>  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar showCancelButton="always" placeholder="搜索" cancel-button-text="取消"></ion-searchbar>
+  <div *ngIf="segment == 1">
+    <ion-list>
+      <ion-item *ngFor="let item of course" [routerLink]="['/class-tabs']">
+        <ion-thumbnail slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            {{ item.name }}
+          </h3>
+          <p>
+            {{item.teacher}}
+          </p>
+          <p>
+            {{item.sememster}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="segment == 2">
+    <ion-list>
+      <ion-item *ngFor="let item of course" [routerLink]="['/class-tabs']">
+        <ion-thumbnail slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            {{ item.name }}
+          </h3>
+          <p>
+            {{item.teacher}}
+          </p>
+          <p>
+            {{item.sememster}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/class-tabs']">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        返回
+      </ion-button>
+    </ion-buttons>
+    <ion-title>学生端手势签到</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="gestureLockBox">
+    <div  class="gestureTitle" text-center [ngStyle]="{'color':textColor}">{{titleMes}}</div>
+    <!-- <a #resetPassword class="resetPasswordBox" (click)="resetPasswordFun()">重置密码?</a>
+    <a #resetPassword  (click)="deletPasswordFun()">删除密码?</a> -->
+    <canvas #canvas [ngStyle]="{'height.px':height,'width.px':width}"></canvas>
+
+  </div>
+</ion-content>

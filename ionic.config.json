@@ -1,0 +1,7 @@
+{
+  "name": "pcm",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
