@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button [routerLink]="['/class-tabs']">
@@ -6,13 +6,24 @@
         返回
       </ion-button>
     </ion-buttons>
-    <ion-title style="padding-left: 33%;">签到统计数据</ion-title>
-  </ion-toolbar>
+    <ion-title>签到统计数据</ion-title>
+  </ion-toolbar> -->
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-buttons collapse="true" slot="start">
+          <ion-back-button text="签到"></ion-back-button>
+        </ion-buttons>
+      </ion-buttons>
+      <ion-title>签到统计数据</ion-title>
+    </ion-toolbar>
+
   <ion-toolbar>
     <ion-grid>
       <ion-row>
         <ion-col style="padding-inline-start:15%">
-          <ion-label>平均出勤率</ion-label>
+          <ion-label>出勤率</ion-label>
         </ion-col>
         <ion-col style="padding-inline-start:15%">
           <ion-label>考勤次数</ion-label>
@@ -20,10 +31,10 @@
       </ion-row>
       <ion-row>
         <ion-col style="padding-inline-start:15%">
-          <ion-label>79%</ion-label>
+          <ion-label>20%</ion-label>
         </ion-col>
         <ion-col style="padding-inline-start:15%">
-          <ion-label>3</ion-label>
+          <ion-label>7</ion-label>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -38,39 +49,162 @@
   <ion-text style="padding-inline-start: 3%;">早退</ion-text>
   <ion-text style="padding-inline-start: 3%;">出勤率</ion-text>
   <ion-list>
+
     <ion-item>
       <ion-thumbnail slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img src="/assets/img/course.jpg">
       </ion-thumbnail>
       <ion-label>
-        <h3>李雪</h3>
-        <p> 190327000</p>
+        <h3>王生安</h3>
+        <p>190327071</p>
       </ion-label>
       <ion-text style="padding-inline-start: 1%;">0</ion-text>
-      <ion-text style="padding-inline-start: 12%;">1</ion-text>
       <ion-text style="padding-inline-start: 12%;">0</ion-text>
       <ion-text style="padding-inline-start: 12%;">0</ion-text>
-      <ion-text style="padding-inline-start: 10%;">67%</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
     </ion-item>
+
     <ion-item>
       <ion-thumbnail slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        <img src="/assets/img/course.jpg">
       </ion-thumbnail>
       <ion-label>
-        <h3>李雪</h3>
-        <p> 190327000</p>
+        <h3>李梦洁</h3>
+        <p>190327072</p>
       </ion-label>
       <ion-text style="padding-inline-start: 1%;">0</ion-text>
-      <ion-text style="padding-inline-start: 12%;">1</ion-text>
       <ion-text style="padding-inline-start: 12%;">0</ion-text>
       <ion-text style="padding-inline-start: 12%;">0</ion-text>
-      <ion-text style="padding-inline-start: 10%;">67%</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
     </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>周天放</h3>
+        <p>190327073</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>赵海堂</h3>
+        <p>190327074</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>范芊芊</h3>
+        <p>190327075</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>孙来笙</h3>
+        <p>190327076</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>林靖宇</h3>
+        <p>190327077</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>易孝廉</h3>
+        <p>190327078</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>梁宝宸</h3>
+        <p>190327079</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="/assets/img/course.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>俞灶驰</h3>
+        <p>190327080</p>
+      </ion-label>
+      <ion-text style="padding-inline-start: 1%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 12%;">0</ion-text>
+      <ion-text style="padding-inline-start: 10%;">100%</ion-text>
+    </ion-item>
+
   </ion-list>
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
   <div style='text-align:center'>
     <ion-label>未完待续...</ion-label>
   </div>
-</ion-footer>
+</ion-footer> -->

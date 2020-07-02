@@ -25,7 +25,7 @@
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button [routerLink]="['/statistic']" fill="clear" style="padding-inline-start:12%">
+        <ion-button (click)='gotoResult()' fill="clear" style="padding-inline-start:12%">
           <ion-icon slot="icon-only" name="today-outline" size="large"></ion-icon>
         </ion-button>
       </ion-col>
@@ -38,7 +38,7 @@
         <ion-label style="padding-left: 12%;" [routerLink]="['/gesture']" >手势签到</ion-label>
       </ion-col>
       <ion-col>
-        <ion-label style="padding-left: 12%;" [routerLink]="['/statistic']">签到统计</ion-label>
+        <ion-label style="padding-left: 12%;" (click)='gotoResult()'>签到统计</ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -47,23 +47,58 @@
   <ion-list>
     <ion-item>
       <ion-label class="ion-text-wrap">
-        <ion-text><h3>2020-4-15 星期三 签到</h3></ion-text>
+        <ion-text><h3>2020-06-28 星期日 签到</h3></ion-text>
         <ion-text>12:00</ion-text>
       </ion-label>
       <ion-text>5人/50人</ion-text>
     </ion-item>
     <ion-item>
       <ion-label class="ion-text-wrap">
-        <ion-text><h3>2020-4-15 星期三 签到</h3></ion-text>
+        <ion-text><h3>2020-06-29 星期一 签到</h3></ion-text>
+        <ion-text>12:00</ion-text>
+      </ion-label>
+      <ion-text>5人/50人</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text><h3>2020-06-30 星期二 签到</h3></ion-text>
+        <ion-text>12:00</ion-text>
+      </ion-label>
+      <ion-text>5人/50人</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text><h3>2020-07-01 星期三 签到</h3></ion-text>
+        <ion-text>12:00</ion-text>
+      </ion-label>
+      <ion-text>5人/50人</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text><h3>2020-07-02 星期四 签到</h3></ion-text>
+        <ion-text>12:00</ion-text>
+      </ion-label>
+      <ion-text>5人/50人</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text><h3>2020-07-03 星期五 签到</h3></ion-text>
+        <ion-text>12:00</ion-text>
+      </ion-label>
+      <ion-text>5人/50人</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-text><h3>2020-07-04 星期六 签到</h3></ion-text>
         <ion-text>12:00</ion-text>
       </ion-label>
       <ion-text>5人/50人</ion-text>
     </ion-item>
   </ion-list>
 </ion-content>
-
+<!-- 
 <ion-footer>
   <div style='text-align:center'>
     <ion-label>未完待续...</ion-label>
   </div>
-</ion-footer>
+</ion-footer> -->

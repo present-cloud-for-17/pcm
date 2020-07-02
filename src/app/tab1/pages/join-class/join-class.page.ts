@@ -91,6 +91,7 @@ export class JoinClassPage implements OnInit {
             console.log(this.response);
             if(this.response==1){
               alert('加入成功!');
+              this.router.navigateByUrl('/home');
             }
             else{
               alert('加入失败!');

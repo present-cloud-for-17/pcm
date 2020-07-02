@@ -33,11 +33,9 @@ export class SignInPage implements OnInit {
       longitude = resp.point.lng;
       latitude = resp.point.lat;
       console.log(longitude, latitude);
-      // this_.localStorage.set
-      // LocalStorageService.set('longitude', resp.point.lng);
       this_.localStorage.set('teaLongitude', resp.point.lng);
       this_.localStorage.set('teaLatitude', resp.point.lat);
-      this_.nav.navigateForward('\start');
+      this_.nav.navigateForward('/start');
       return longitude;
     }, { enableHighAccuracy: true });
 
@@ -50,5 +48,7 @@ export class SignInPage implements OnInit {
     // },2000);
 
   }
-
+  gotoResult(){
+    this.nav.navigateForward('/tea-sign-result');
+  }
 }

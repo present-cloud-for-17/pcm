@@ -58,7 +58,7 @@ export class StuSignInPage implements OnInit {
         this.cName = this.course.cName;
       },function(error){console.log(error);});
 
-      this.http.get('http://175.24.88.62:8080/pcs/signIn/findAll.do', this.httpOptions)
+    this.http.get('http://175.24.88.62:8080/pcs/signIn/findAll.do', this.httpOptions)
       .subscribe(data =>{
         this.signData = new Array<signTable>();
         this.signData = JSON.parse(JSON.stringify(data));  
@@ -74,48 +74,89 @@ export class StuSignInPage implements OnInit {
   }
 
   stuSignIn() {
-
-    if(this.localStorage.getItem('starSign')==1)
+    
+    if(this.localStorage.getItem('starSign')!=null)
     {
+      if(this.localStorage.getItem('starSign')==1)
+      {
 
-      var this_ = this;
-      const geolocation = new BMap.Geolocation();
-      geolocation.getCurrentPosition(function(r) {
-        const mk = new BMap.Marker(r.point);
-        alert('您的位置：' + r.point.lng + ',' + r.point.lat);
-        this_.longitude = r.point.lng;
-        this_.latitude = r.point.lat;
-        console.log(this_.longitude, this_.latitude);
-      }, { enableHighAccuracy: true });
-      // this.signInAlert();
-      console.log(this_.longitude, this_.latitude);
-      // this.localStorage.set('longitude', this.longitude);
-      // this.localStorage.set('latitude', this.latitude);
-      // console.log(this.longitude, this.latitude);
+        var this_ = this;
+        const geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r) {
+          const mk = new BMap.Marker(r.point);
+          alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+          this_.longitude = r.point.lng;
+          this_.latitude = r.point.lat;
+          console.log(this_.longitude, this_.latitude);
+          this_.router.navigateByUrl('/class-tabs');
+        }, { enableHighAccuracy: true });
+        // this.signInAlert();
+        // console.log(this.longitude, this.latitude);
+        // this.localStorage.set('longitude', this.longitude);
+        // this.localStorage.set('latitude', this.latitude);
+        // console.log(this.longitude, this.latitude);
 
-      this.formatDate();
-      console.log(this.signDate);
+        this.formatDate();
+        console.log(this.signDate);
 
-      this.http.post('http://175.24.88.62:8080/pcs/signIn/insert.do',
-        {cNumber: this.cNumber, cName: this.cName, peNumber: this.person.peNumber, 
-          peName: this.person.peName, state: 1, date: this.signDate, position: this.position},this.httpOptions)
-          .subscribe(response=>{
-            console.log(response);
-            this.response=response;
-            if(this.response==1)
-            {
-              alert('签到成功!');
-              this.router.navigateByUrl('/class-tabs');
-            }
-            else
-            {
-              alert('签到失败!')
-            }
-          },function(error){console.log(error);})
+        this.http.post('http://175.24.88.62:8080/pcs/signIn/insert.do',
+          {cNumber: this.cNumber, cName: this.cName, peNumber: this.person.peNumber, 
+            peName: this.person.peName, state: 1, date: this.signDate, position: this.position},this.httpOptions)
+            .subscribe(response=>{
+              console.log(response);
+              this.response=response;
+              if(this.response==1)
+              {
+                alert('签到成功!');
+              }
+              else
+              {
+                alert('签到失败!')
+              }
+            },function(error){console.log(error);})
+      }
+      else
+      {
+        alert('签到尚未开始!');
+      }
     }
     else
     {
-      alert('签到尚未开始!');
+      var this_ = this;
+        const geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function(r) {
+          const mk = new BMap.Marker(r.point);
+          alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+          this_.longitude = r.point.lng;
+          this_.latitude = r.point.lat;
+          console.log(this_.longitude, this_.latitude);
+          this_.router.navigateByUrl('/class-tabs');
+        }, { enableHighAccuracy: true });
+        // this.signInAlert();
+        // console.log(this.longitude, this.latitude);
+        // this.localStorage.set('longitude', this.longitude);
+        // this.localStorage.set('latitude', this.latitude);
+        // console.log(this.longitude, this.latitude);
+
+        this.formatDate();
+        console.log(this.signDate);
+
+        this.http.post('http://175.24.88.62:8080/pcs/signIn/insert.do',
+          {cNumber: this.cNumber, cName: this.cName, peNumber: this.person.peNumber, 
+            peName: this.person.peName, state: 1, date: this.signDate, position: this.position},this.httpOptions)
+            .subscribe(response=>{
+              console.log(response);
+              this.response=response;
+              if(this.response==1)
+              {
+                alert('签到成功!');
+                // this.router.navigateByUrl('/class-tabs');
+              }
+              else
+              {
+                alert('签到失败!')
+              }
+            },function(error){console.log(error);})
     }
   }
 

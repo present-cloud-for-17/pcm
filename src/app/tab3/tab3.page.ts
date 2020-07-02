@@ -10,8 +10,8 @@ export class Tab3Page {
 
   constructor(public localStorage: LocalStorageService,) {}
 
-  public pName: any;
-  public pNumber: any;
+  public pName: any = this.localStorage.getItem('person').peName;
+  public pNumber: any = this.localStorage.getItem('person').peNumber;
   public person: any;
   ngOnInit() {
     this.person = this.localStorage.getItem('person');
