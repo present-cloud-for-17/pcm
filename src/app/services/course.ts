@@ -1,6 +1,11 @@
 export interface Course {
-    id: number;
-    name: string;
-    teacher: string;
-    sememster: any;
+    cId : any,
+    cNumber: any,
+    cName: any,
+    description: any,
+    term: any,
+    date: any,
+    credit: any,
+    dailyWeight: any,
+    finalWeight: any
   }

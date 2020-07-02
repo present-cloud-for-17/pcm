@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../services/local-storage.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { school } from '../services/schoolInfo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-full-user-info',
@@ -9,7 +11,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class FullUserInfoPage implements OnInit {
 
-  constructor(public localStorage: LocalStorageService, public http: HttpClient) { }
+  constructor(public localStorage: LocalStorageService,
+              public http: HttpClient,
+              public router: Router) { }
 
   private uId : any;
   private sId : any;
@@ -20,46 +24,32 @@ export class FullUserInfoPage implements OnInit {
   private major : any;
   private classes : any;
   private isTeacher : any;
-  // private token :any;
-  private httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json', 
-        'Accept': 'application/json', 
-        'Authorization': 'wangzhewen' + this.localStorage.getItem("token")
-      })
-  };
-  // private httpOptions: any;
-  // private headers = new HttpHeaders({'Content-Type': 'application/json', 
-  // 'Accept': 'application/json'});
+
+  private getSelectSname : any;
+  public majors: Array<string>;
+  public schools : Array<school>;
   
-  // private schools :any = {
-  //   id : '1',
-  //   name : '1',
-  // };
+  private httpOptions: any;
+  private response : any;
 
   ngOnInit() {
-    // this.respondeData = localStorage.getItem('response');
+
     this.uId = this.localStorage.getItem('uId');
-    // this.token = this.localStorage.getItem('token');
-    // this.headers.append('Authorization', 'wzw'+ this.token);
-    console.log(this.httpOptions);
-    // this.httpOptions = {
-    //   headers: new HttpHeaders({ 
-    //     'Content-Type': 'application/json', 
-    //     'Accept': 'application/json', 
-    //     "Authorization": 'wangzhewen' + this.token})
-    // };
     this.getSchools();
-    // console.log(this.uId);
-    // console.log(this.token);
+
   }
   getSchools()
   {
+    this.httpOptions = {
+      headers: new HttpHeaders({ 
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json', 
+        'token': this.localStorage.getItem('token')})
+    };
     this.http.get('http://175.24.88.62:8080/pcs/school/findAll.do', this.httpOptions)
-    .subscribe(schools => {
-      console.log(schools);
-                  // console.log(response); 
+    .subscribe(data => {
+      this.schools = new Array<school>();
+      this.schools = JSON.parse(JSON.stringify(data));
     }, function(error){console.log(error);});
   }
   checkGender(e){
@@ -67,14 +57,57 @@ export class FullUserInfoPage implements OnInit {
   }
   getSchoolId(e){
     this.sId = e.detail.value;
+    for(var i=0; i<this.schools.length; i++){
+      if(this.schools[i].sId==this.sId){
+        this.getSelectSname = this.schools[i].sName;
+        break;
+     }
+    } 
+    this.majors = new Array<string>();
+    var k = 0;
+    for(var i=0; i<this.schools.length; i++){
+      if(this.schools[i].sName==this.getSelectSname){
+        this.majors[k]=this.schools[i].major;
+        k++;
+      }
+    }
   }
   getMajor(e){
     this.major = e.detail.value;
+    var k = 0;
+    for(var i=0; i<this.schools.length; i++){
+      if(this.schools[i].major==this.major){
+        this.sId = this.schools[i].sId;
+        break;
+      }
+    }
   }
   getGrade(e){
     this.grade = e.detail.value;
+    // console.log(this.grade);
+  }
+  getClasses(e){
+    this.classes = e.detail.value;
   }
   checkRole(e) {
     this.isTeacher = e.detail.value;
+  }
+  savePerson(){
+    this.http.post('http://175.24.88.62:8080/pcs/person/insert.do', 
+    {uId:this.uId, sId:this.sId, peNumber:this.peNumber, peName:this.peName, gender:this.gender, 
+      grade:this.grade, major:this.major, classes:this.classes, isTeacher:this.isTeacher},
+    this.httpOptions) 
+    .subscribe(response => {
+      this.response=response;
+      console.log(response);
+      if(this.response!=null){
+        this.localStorage.set('person', this.response);
+        alert('提交成功!');
+        this.router.navigateByUrl('/home');
+      }
+      else{
+        alert('提交失败!');
+      }
+    }, function(error){console.log(error);});
   }
 }

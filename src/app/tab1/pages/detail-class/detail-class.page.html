@@ -11,67 +11,97 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="role == teacher">
-    <ion-list>
+  <div *ngIf="isTeacher==1">
+    <form>
       <ion-item>
-        <ion-label>班课号</ion-label>
-        <ion-note slot="end">{{classInfo.classid}}</ion-note>
+        <ion-label>课程编号</ion-label>
+        <ion-input type="text" placeholder="未设置" name="cNumber" [(ngModel)]="cNumber" required="true"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label>允许加入</ion-label>
-        <ion-toggle checked></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>班级名称</ion-label>
-        <ion-input placeholder="未设置" [(ngModel)]="classInfo.classname"></ion-input>
-      </ion-item>
+
       <ion-item>
         <ion-label>课程名称</ion-label>
-        <ion-input placeholder="未设置" [(ngModel)]="classInfo.couresename"></ion-input>
+        <ion-input type="text" placeholder="未设置" name="cName" [(ngModel)]="cName" required="true"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>学期</ion-label>
-        <ion-input placeholder="未设置" [(ngModel)]="classInfo.semester"></ion-input>
+        <ion-label>课程描述</ion-label>
+        <ion-input type="text" placeholder="未设置" name="description" [(ngModel)]="description" required="true"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>学习要求</ion-label>
-        <ion-input placeholder="未设置" [(ngModel)]="classInfo.requirement"></ion-input>
+        <ion-label>课程学期</ion-label>
+        <ion-input type="text" placeholder="未设置" name="term" [(ngModel)]="term" required="true"></ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-label>考试安排</ion-label>
-        <ion-input placeholder="未设置" [(ngModel)]="classInfo.plan"></ion-input>
+        <ion-label>课程学周</ion-label>
+        <ion-input type="number" placeholder="未设置" name="date" [(ngModel)]="date" required="true"></ion-input>
       </ion-item>
-    </ion-list>
-    <ion-button expand="full" (click)="saveClassInfo()">保存</ion-button>
+
+      <ion-item>
+        <ion-label>课程学分</ion-label>
+        <ion-input type="number" placeholder="未设置" name="credit" [(ngModel)]="credit" required="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>日常比重</ion-label>
+        <ion-input type="number" placeholder="未设置" name="dailyWeight" [(ngModel)]="dailyWeight" required="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>期末比重</ion-label>
+        <ion-input type="number" placeholder="未设置" name="finalWeight" [(ngModel)]="finalWeight" required="true"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" expand="full" color="primary" (click)="saveCourse()">
+        保存修改
+      </ion-button>  
+    </form>
   </div>
 
-  <div *ngIf="role !== teacher">
-    <ion-list>
+  <div *ngIf="isTeacher==0">
+    <form>
       <ion-item>
-        <ion-label>班课号</ion-label>
-        <ion-note slot="end" >{{classInfo.classid}}</ion-note>
+        <ion-label>课程编号</ion-label>
+        <ion-text>{{cNumber}}</ion-text>
       </ion-item>
-      <ion-item>
-        <ion-label>班级名称</ion-label>
-        <ion-note slot="end" >{{classInfo.classname}}</ion-note>
-      </ion-item>
+
       <ion-item>
         <ion-label>课程名称</ion-label>
-        <ion-note slot="end" >{{classInfo.couresename}}</ion-note>
+        <ion-text>{{cName}}</ion-text>
       </ion-item>
+
       <ion-item>
-        <ion-label>教师</ion-label>
-        <ion-note slot="end" >{{classInfo.teachername}}</ion-note>
+        <ion-label>课程描述</ion-label>
+        <ion-text>{{description}}</ion-text>
       </ion-item>
+
       <ion-item>
-        <ion-label>学习要求</ion-label>
-        <ion-note slot="end" >{{classInfo.requirement}}</ion-note>
+        <ion-label>课程学期</ion-label>
+        <ion-text>{{term}}</ion-text>
       </ion-item>
+
       <ion-item>
-        <ion-label>考试安排</ion-label>
-        <ion-note slot="end">{{classInfo.plan}}</ion-note>
+        <ion-label>课程学周</ion-label>
+        <ion-text>{{date}}</ion-text>
       </ion-item>
-    </ion-list>
-    <ion-button expand="full">退出班课</ion-button>
+
+      <ion-item>
+        <ion-label>课程学分</ion-label>
+        <ion-text>{{credit}}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>日常比重</ion-label>
+        <ion-text>{{dailyWeight}}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>期末比重</ion-label>
+        <ion-text>{{finalWeight}}</ion-text>
+      </ion-item>
+      
+    </form>
+
   </div>
 </ion-content>

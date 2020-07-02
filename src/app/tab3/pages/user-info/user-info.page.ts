@@ -37,6 +37,7 @@ export class UserInfoPage implements OnInit {
 
   saveUserInfo() {
     this.localStorage.set('UserInfo', this.userInfo);
+    alert('接口待完善!');
     this.router.navigateByUrl('/home');
   }
 }

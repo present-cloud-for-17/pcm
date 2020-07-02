@@ -1,10 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" color="light" routerLink="/sign-in">
+        返回
+    </ion-button>
+    <ion-title style='text-align:center'>设置手势密码</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <div class="gestureLockBox">
     <div  class="gestureTitle" text-center  [ngStyle]="{'color':textColor}">{{titleMes}}</div>
     <a #resetPassword class="resetPasswordBox" (click)="resetPasswordFun()">重置密码?</a>
     <a #resetPassword  (click)="deletPasswordFun()">删除密码?</a>
-    <canvas #canvas [ngStyle]="{'height.px':height,'width.px':width}"></canvas>
+    <!-- <canvas #canvas [ngStyle]="{'height.px':height,'width.px':width}"></canvas> -->
 
+  </div>
+  <div style="margin: 0 auto;">
+  <canvas #canvas [ngStyle]="{'height.px':height,'width.px':width}"></canvas>
+  </div>
+  <div style='text-align:center'>
+    <ion-label>未完待续...</ion-label>
   </div>
 
 </ion-content>

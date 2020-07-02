@@ -33,7 +33,7 @@ export class RegisterPage implements OnInit {
   private userPhone = '';
   private userMail = '';
   private userDate = '';
-  public response : any;
+  private response : any;
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -116,6 +116,9 @@ export class RegisterPage implements OnInit {
         if(this.response==1){
           alert('注册成功!');
           this.router.navigateByUrl('/login');
+        }
+        else{
+          alert('注册失败!');
         }
       }, function(error){console.log(error);});
     // this.localStorage.set('user', this.user);

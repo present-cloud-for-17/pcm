@@ -26,21 +26,22 @@
 
 <ion-content [fullscreen]="true">
   <ion-searchbar showCancelButton="always" placeholder="搜索" cancel-button-text="取消"></ion-searchbar>
+  
   <div *ngIf="segment == 1">
     <ion-list>
-      <ion-item *ngFor="let item of course" [routerLink]="['/class-tabs']">
+      <ion-item *ngFor="let item of course" (click)="getSelectCourse(item)">
         <ion-thumbnail slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          <img src="/assets/img/course.jpg">
         </ion-thumbnail>
         <ion-label>
           <h3>
-            {{ item.name }}
+            {{ item.cName }}
           </h3>
-          <p>
+          <!-- <p>
             {{item.teacher}}
-          </p>
+          </p> -->
           <p>
-            {{item.sememster}}
+            {{item.term}}
           </p>
         </ion-label>
       </ion-item>
@@ -49,22 +50,23 @@
 
   <div *ngIf="segment == 2">
     <ion-list>
-      <ion-item *ngFor="let item of course" [routerLink]="['/class-tabs']">
+      <ion-item *ngFor="let item of course" (click)="getSelectCourse(item)">
         <ion-thumbnail slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          <img src="/assets/img/course.jpg">
         </ion-thumbnail>
         <ion-label>
           <h3>
-            {{ item.name }}
+            {{ item.cName }}
           </h3>
-          <p>
+          <!-- <p>
             {{item.teacher}}
-          </p>
+          </p> -->
           <p>
-            {{item.sememster}}
+            {{item.term}}
           </p>
         </ion-label>
       </ion-item>
     </ion-list>
   </div>
+
 </ion-content>

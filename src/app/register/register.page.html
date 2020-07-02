@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-button slot="start" color="light" routerLink="/login">
-        取消
+        返回
     </ion-button>
     <ion-title style='text-align:center'>注册</ion-title>
   </ion-toolbar>
@@ -128,7 +128,7 @@
             </ion-input>
         </ion-item>
       </ion-list>
-      <ion-button type="submit" expand="full" color="primary" routerLink="/login" (click)="saveUser()">
+      <ion-button type="submit" expand="full" color="primary" (click)="saveUser()">
         完成注册
       </ion-button>  
     </form>

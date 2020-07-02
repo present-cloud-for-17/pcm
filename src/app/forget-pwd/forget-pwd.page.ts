@@ -2,6 +2,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { IonSlides, ToastController } from '@ionic/angular';
 import { AuthenticationCodeService } from '../services/authentication-code.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forget-pwd',
@@ -29,7 +30,8 @@ export class ForgetPwdPage implements OnInit {
   intervalFun: any;
   constructor(public localStorage: LocalStorageService,
               public authenticationCodeService: AuthenticationCodeService,
-              private toastCtrl: ToastController) { }
+              private toastCtrl: ToastController,
+              public router: Router) { }
   ngOnInit() {
     this.resetSlides.lockSwipes(true);
   }
@@ -41,31 +43,28 @@ export class ForgetPwdPage implements OnInit {
     this.resetSlides.lockSwipes(true);
   }
 
-  async sendVerifyCode() {
+  sendVerifyCode() {
     this.verifyCode.code = this.authenticationCodeService.createCode(this.verifyCode.length);
     this.verifyCode.disable = true;
-    this.intervalFun = setInterval(() => {
-      this.countDown();
-    }, 1000);
-    const tmp = this.localStorage.get('user', '');
-    if (tmp.phone == this.user.phone) {
-      this.onNext();
-    } else {
-      const toast = await this.toastCtrl.create({
-        message: '手机号码错误',
-        duration: 2000,
-        position: "top" 
-      });
-      await toast.present();
-    }
+    this.intervalFun = setInterval(() => {this.countDown();}, 1000);
+    // const tmp = this.localStorage.get('user', '');
+    // if (tmp.phone == this.user.phone) {
+    this.onNext();
+    // } 
+    // else {
+      // const toast =  this.toastCtrl.create({
+      //   message: '手机号码错误',
+      //   duration: 2000,
+      //   position: "top" 
+      // });
+      //  toast.present();
+    // }
   }
 
   resend() {
     this.verifyCode.code = this.authenticationCodeService.createCode(this.verifyCode.length);
     this.verifyCode.disable = true;
-    this.intervalFun = setInterval(() => {
-      this.countDown();
-    }, 1000);
+    this.intervalFun = setInterval(() => {this.countDown();}, 1000);
   }
 
   countDown() {
@@ -88,9 +87,11 @@ export class ForgetPwdPage implements OnInit {
   }
 
   saveUser() {
-    const tmp = this.localStorage.get('user', '');
-    tmp.passport = this.user.passport;
-    console.log(this.user.passport);
-    this.localStorage.set('user', tmp);
+    // const tmp = this.localStorage.get('user', '');
+    // tmp.passport = this.user.passport;
+    // console.log(this.user.passport);
+    alert('接口待完善!');
+    this.router.navigateByUrl('/login');
+    // this.localStorage.set('user', tmp);
   }
 }

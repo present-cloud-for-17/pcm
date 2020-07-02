@@ -8,34 +8,51 @@
 </ion-header>
 
 <ion-content>
+  <div>
+    <form>
+      <ion-item>
+        <ion-label>课程编号</ion-label>
+        <ion-input type="text" placeholder="未设置" name="cNumber" [(ngModel)]="cNumber" required="true"></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label>班级</ion-label>
-    <ion-input placeholder="未设置"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label>课程名称</ion-label>
+        <ion-input type="text" placeholder="未设置" name="cName" [(ngModel)]="cName" required="true"></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label>课程</ion-label>
-    <ion-input placeholder="未设置"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label>课程描述</ion-label>
+        <ion-input type="text" placeholder="未设置" name="description" [(ngModel)]="description" required="true"></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label>学期</ion-label>
-    <ion-input placeholder="未设置"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label>课程学期</ion-label>
+        <ion-input type="text" placeholder="未设置" name="term" [(ngModel)]="term" required="true"></ion-input>
+      </ion-item>
 
-  <ion-item > 
-    <ion-label>学校课表班课</ion-label>
-    <ion-toggle slot="end"></ion-toggle>
-  </ion-item>
+      <ion-item>
+        <ion-label>课程学周</ion-label>
+        <ion-input type="number" placeholder="未设置" name="date" [(ngModel)]="date" required="true"></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label>设置考试安排</ion-label>
-    <ion-input placeholder="未设置"></ion-input>
-  </ion-item>
-  <div class="btn">
-    <ion-button expand="block" style="width:80%;" [routerLink]="['/creatcode']" >
-      创建
-    </ion-button>
+      <ion-item>
+        <ion-label>课程学分</ion-label>
+        <ion-input type="number" placeholder="未设置" name="credit" [(ngModel)]="credit" required="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>日常比重</ion-label>
+        <ion-input type="number" placeholder="未设置" name="dailyWeight" [(ngModel)]="dailyWeight" required="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>期末比重</ion-label>
+        <ion-input type="number" placeholder="未设置" name="finalWeight" [(ngModel)]="finalWeight" required="true"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" expand="full" color="primary" (click)="saveCourse()">
+        完成
+      </ion-button>  
+    </form>
   </div>
 </ion-content>

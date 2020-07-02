@@ -11,20 +11,24 @@
         <ion-item lines="none">
           <!-- <ion-icon name="person-sharp"></ion-icon> -->
           <ion-label>工号/学号</ion-label>
+          <ion-input name="peNumber" type="text" placeholder="请填写工号/学号" required="true" [(ngModel)]="peNumber" >
+          </ion-input>
         </ion-item>
-        <ion-item>
+        <!-- <ion-item>
           <ion-input name="peNumber" type="text" placeholder="请填写工号/学号" required="true" [(ngModel)]="peNumber" >
             </ion-input>
-        </ion-item>
+        </ion-item> -->
 
         <ion-item lines="none">
           <!-- <ion-icon name="person-circle-sharp"></ion-icon> -->
           <ion-label>姓名</ion-label>
+          <ion-input name="peName" type="text" placeholder="请填写姓名" required="true" [(ngModel)]="peName" >
+          </ion-input>
         </ion-item>
-        <ion-item>
+        <!-- <ion-item>
           <ion-input name="peName" type="text" placeholder="请填写姓名" required="true" [(ngModel)]="peName" >
             </ion-input>
-        </ion-item>
+        </ion-item> -->
 
         <ion-list>
           <ion-radio-group (ionChange)="checkGender($event)">
@@ -49,7 +53,7 @@
           <ion-item>
             <ion-label>学校</ion-label>
             <ion-select (ionChange)="getSchoolId($event)">
-              <ion-select-option *ngFor="let school of schools" value='{{school.id}}'>{{school.name}}</ion-select-option>
+              <ion-select-option *ngFor="let school of schools" value='{{school.sId}}'>{{school.sName}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>
@@ -58,7 +62,7 @@
           <ion-item>
             <ion-label>专业</ion-label>
             <ion-select (ionChange)="getMajor($event)">
-              <ion-select-option *ngFor="let major of majors" value='{{major.name}}'>{{major.name}}</ion-select-option>
+              <ion-select-option *ngFor="let major of majors" value='{{major}}'>{{major}}</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>
@@ -77,14 +81,19 @@
           </ion-item>
         </ion-list>
 
-        <ion-item lines="none">
-          <!-- <ion-icon name="mail-sharp"></ion-icon> -->
-          <ion-label>班级</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-input name="classes" type="text" placeholder="请填写班级" required="true" [(ngModel)]="classes" >
-            </ion-input>
-        </ion-item>
+        <ion-list>
+          <ion-item>
+            <ion-label>班级</ion-label>
+            <ion-select (ionChange)="getClasses($event)">
+              <ion-select-option value='1'>1</ion-select-option>
+              <ion-select-option value='2'>2</ion-select-option>
+              <ion-select-option value='3'>3</ion-select-option>
+              <ion-select-option value='4'>4</ion-select-option>
+              <ion-select-option value='5'>5</ion-select-option>
+              <ion-select-option value='6'>6</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
 
         <ion-list>
           <ion-radio-group (ionChange)="checkRole($event)">
@@ -106,7 +115,7 @@
         </ion-list>
 
       </ion-list>
-      <ion-button type="submit" expand="full" color="primary" routerLink="/home" (click)="savePerson()">
+      <ion-button type="submit" expand="full" color="primary" (click)="savePerson()">
         完成
       </ion-button>  
     </form>

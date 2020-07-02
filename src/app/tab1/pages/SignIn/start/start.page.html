@@ -10,16 +10,16 @@
 </ion-header>
 
 <ion-content>
-  <h1 style="text-align: center;">45/50</h1>
+  <!-- <h1 style="text-align: center;">45/50</h1> -->
 </ion-content>
 <ion-footer>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button fill="outline" expand="block">放弃</ion-button>
+        <ion-button fill="outline" expand="block" (click)="giveUp()">放弃</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button fill="outline" expand="block" [routerLink]="['/tea-sign-result']">结束</ion-button>
+        <ion-button fill="outline" expand="block" (click)="endSign()">结束</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

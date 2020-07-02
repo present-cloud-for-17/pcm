@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
   // };
   // intervalFun: any;
 
-  private loginType : number;
+  // private loginType : number;
   private loginToken = '';
   private passwordToken = '';
   private httpOptions = {
@@ -83,30 +83,46 @@ export class LoginPage implements OnInit {
   // }
 
   check() {
-    if(this.loginType!=null){
       // console.log(this.loginType);
       this.http.post('http://175.24.88.62:8080/pcs/userVerification/login.do', 
-                  {loginType: this.loginType, loginToken: this.loginToken, passwordToken: this.passwordToken}, 
-                  this.httpOptions)
-                  .subscribe(response => {
-                    this.response=response;
-                    // console.log(this.response.data.user.uId);
-                    this.localService.set('uId', this.response.data.user.uId);
-                    this.localService.set('token', this.response.data.token);
-                    console.log(response); 
-                    if(this.response.code==200){
-                      this.router.navigateByUrl('/full-user-info');
-                    }
-                  }, function(error){console.log(error);});
-    }
-    
-    
+                        {loginToken: this.loginToken, passwordToken: this.passwordToken}, 
+                            this.httpOptions)
+                                .subscribe(response => 
+                                {
+                                  this.response=response;
+                                  // console.log(this.response.data.user.uId);
+                                  console.log(response); 
+                                  if(this.response.code==200)
+                                  {
+                                    alert('登陆成功!');
+                                    this.localService.set('uId', this.response.data.user.uId);
+                                    this.localService.set('token', this.response.data.token);
+                                    // this.localService.set('uvId', this.response.data.userVerification.uvId);
+                                    if(this.response.data.person==null){
+                                      this.router.navigateByUrl('/full-user-info');
+                                    }
+                                    if(this.response.data.person!=null){
+                                      this.localService.set('person', this.response.data.person);
+                                      // this.localService.set('peId', this.response.data.person.peId);
+                                      // this.localService.set('isTeacher', this.response.data.person.isTeacher);
+                                      this.router.navigateByUrl('/home');
+                                    }                                   
+                                  }
+                                  else{
+                                    alert('登陆失败!');
+                                  }
+                                  
+                                }, 
+                                function(error)
+                                {
+                                  console.log(error);
+                                }); 
     // 1 202001 123456
 
     // if (this.phone == this.localService.getItem('user').phone && this.password == this.localService.getItem('user').passport) {
     //   this.router.navigateByUrl('/home');
     // }
-  }
+}
 
   // clickvcd() {
   //   this.segment = 1;
@@ -114,8 +130,8 @@ export class LoginPage implements OnInit {
   // clickpwd() {
   //   this.segment = 3;
   // }
-  checkRole(e) {
-    this.loginType = parseInt(e.detail.value, 10);
-  }
+  // checkRole(e) {
+  //   this.loginType = parseInt(e.detail.value, 10);
+  // }
 
 }

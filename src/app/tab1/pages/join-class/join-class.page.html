@@ -8,35 +8,49 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides #classSlides >
+  <ion-slides #classSlides>
+
     <ion-slide>
       <form>
         <ion-item>
-          <ion-input placeholder="请输入班课号" required></ion-input>
+          <ion-label>课程编号</ion-label>
+          <ion-input type="text" placeholder="请输入课程编号" name="cNumber" [(ngModel)]="cNumber" required="true"></ion-input>
         </ion-item>
-        <h3>或</h3>
-        <ion-button (click)="scan()">扫描二维码</ion-button>
         <ion-button  expand="full" color="primary" (click)="onNext()" >
           下一步
         </ion-button>
       </form>
     </ion-slide>
+
     <ion-slide>
       <form novalidate>
         <ion-list lines="full">
           <ion-item>
-            <ion-label position="fixed">班课名称</ion-label>
-            <ion-text>1</ion-text>
+            <ion-label position="fixed">课程名称</ion-label>
+            <ion-text>{{cName}}</ion-text>
           </ion-item>
           <ion-item>
-            <ion-label>老师</ion-label>
-            <ion-text>1</ion-text>
+            <ion-label position="fixed">课程描述</ion-label>
+            <ion-text>{{description}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label position="fixed">课程学期</ion-label>
+            <ion-text>{{term}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label position="fixed">课程学周</ion-label>
+            <ion-text>{{date}}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label position="fixed">课程学分</ion-label>
+            <ion-text>{{credit}}</ion-text>
           </ion-item>
         </ion-list>
-        <ion-button type="submit" expand="full" color="primary" [routerLink]="['/home']"  >
+        <ion-button type="submit" expand="full" color="primary" (click)="joinClass()">
           加入
         </ion-button>
       </form>
     </ion-slide>
+
   </ion-slides>
 </ion-content>
