@@ -30,6 +30,8 @@
     "angular2-uuid": "^1.1.1",
     "bufferutil": "^4.0.1",
     "cordova-android": "^8.1.0",
+    "cordova-plugin-advanced-http": "^2.5.1",
+    "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-qrscanner": "^3.0.1",
     "core-js": "^2.5.4",
@@ -79,7 +81,10 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-qrscanner": {},
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-advanced-http": {
+        "OKHTTP_VERSION": "3.10.0"
+      }
     },
     "platforms": [
       "android"

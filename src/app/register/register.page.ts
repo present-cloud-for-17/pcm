@@ -1,6 +1,6 @@
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, ToastController } from '@ionic/angular';
 import { AuthenticationCodeService } from '../services/authentication-code.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -43,7 +43,8 @@ export class RegisterPage implements OnInit {
   constructor(public localStorage: LocalStorageService,
               public authenticationCodeService: AuthenticationCodeService,
               public http: HttpClient,
-              public router: Router) { }
+              public router: Router,
+              private toastCtrl: ToastController) { }
   ngOnInit() {
     // this.userDate = new Date();
     this.formatDate();
@@ -109,16 +110,26 @@ export class RegisterPage implements OnInit {
   saveUser() {
     this.http.post('http://175.24.88.62:8080/pcs/user/register.do', 
     {uNumber: this.userNumber, uName: this.userName, phone: this.userPhone, emaile: this.userMail, createDate: this.userDate, status: 1}, this.httpOptions)
-      .subscribe(response => {
+      .subscribe(async response => {
         this.response=response;
         console.log(this.response);
                     // console.log(response); 
         if(this.response==1){
-          alert('注册成功!');
+          const toast = await this.toastCtrl.create({
+                message: '注册成功',
+                position: 'top',
+                duration: 2000
+              });
+          await toast.present();
           this.router.navigateByUrl('/login');
         }
         else{
-          alert('注册失败!');
+          const toast = await this.toastCtrl.create({
+            message: '注册失败',
+            position: 'top',
+            duration: 2000
+          });
+          await toast.present();
         }
       }, function(error){console.log(error);});
     // this.localStorage.set('user', this.user);

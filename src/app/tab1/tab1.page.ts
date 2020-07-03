@@ -1,6 +1,6 @@
 // import { COURSES } from './../mock/mock-courses';
 import { personCourse } from '../services/personCourse';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from './component/popover/popover.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
   private segment: any;
   popover: any;
   private course : Array<personCourse>;
