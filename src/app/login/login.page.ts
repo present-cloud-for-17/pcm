@@ -97,11 +97,12 @@ export class LoginPage implements OnInit {
                                     alert('登陆成功!');
                                     this.localService.set('uId', this.response.data.user.uId);
                                     this.localService.set('token', this.response.data.token);
+                                    this.localService.set('peId', this.response.data.person.peId);
                                     // this.localService.set('uvId', this.response.data.userVerification.uvId);
-                                    if(this.response.data.person==null){
+                                    if(this.response.data.person.sId==null){
                                       this.router.navigateByUrl('/full-user-info');
                                     }
-                                    if(this.response.data.person!=null){
+                                    if(this.response.data.person.sId!=null){
                                       this.localService.set('person', this.response.data.person);
                                       // this.localService.set('peId', this.response.data.person.peId);
                                       // this.localService.set('isTeacher', this.response.data.person.isTeacher);

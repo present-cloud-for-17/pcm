@@ -7,5 +7,7 @@ export interface Course {
     date: any,
     credit: any,
     dailyWeight: any,
-    finalWeight: any
+    finalWeight: any,
+    peId: any,
+    peName: any
   }

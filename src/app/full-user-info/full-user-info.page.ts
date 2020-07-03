@@ -15,6 +15,7 @@ export class FullUserInfoPage implements OnInit {
               public http: HttpClient,
               public router: Router) { }
 
+  private peId: any;
   private uId : any;
   private sId : any;
   private peNumber : any;
@@ -34,7 +35,9 @@ export class FullUserInfoPage implements OnInit {
 
   ngOnInit() {
 
+    this.peId = this.localStorage.getItem('peId');
     this.uId = this.localStorage.getItem('uId');
+    
     this.getSchools();
 
   }
@@ -93,8 +96,8 @@ export class FullUserInfoPage implements OnInit {
     this.isTeacher = e.detail.value;
   }
   savePerson(){
-    this.http.post('http://175.24.88.62:8080/pcs/person/insert.do', 
-    {uId:this.uId, sId:this.sId, peNumber:this.peNumber, peName:this.peName, gender:this.gender, 
+    this.http.post('http://175.24.88.62:8080/pcs/person/updateByPrimaryKey.do', 
+    {peId: this.peId, uId:this.uId, sId:this.sId, peNumber:this.peNumber, peName:this.peName, gender:this.gender, 
       grade:this.grade, major:this.major, classes:this.classes, isTeacher:this.isTeacher},
     this.httpOptions) 
     .subscribe(response => {

@@ -56,28 +56,30 @@ export class SetupClassPage implements OnInit {
       {
         this.cId = JdataCourse.cId;
         alert('创建成功!');
+        this.router.navigateByUrl('/home');
       }
       else
       {
         alert('创建失败!');
       }
-      let personCourse = await this.insertPerCou();
-      if(JSON.parse(JSON.stringify(personCourse))==1)
-      {
-        console.log('教师-课程表插入成功!');
-        this.router.navigateByUrl('/home');
-      }
-      else
-      {
-        console.log('教师-课程表插入失败!');
-      }
+      // let personCourse = await this.insertPerCou();
+      // if(JSON.parse(JSON.stringify(personCourse))==1)
+      // {
+      //   console.log('教师-课程表插入成功!');
+      //   this.router.navigateByUrl('/home');
+      // }
+      // else
+      // {
+      //   console.log('教师-课程表插入失败!');
+      // }
     }
   }
   insertCourse()
   {
     let dataCourse = this.http.post('http://175.24.88.62:8080/pcs/course/insert.do',
         {cNumber: this.cNumber, cName: this.cName, description: this.description, term: this.term,
-        date: this.date, credit: this.credit, dailyWeight: this.dailyWeight, finalWeight: this.finalWeight},
+        date: this.date, credit: this.credit, dailyWeight: this.dailyWeight, finalWeight: this.finalWeight,
+        peId: this.person.peId, peName: this.person.peName},
         this.httpOptions).toPromise();
     return dataCourse;
   }
