@@ -105,16 +105,15 @@ export class RegisterPage implements OnInit {
 
   // checkRole(e) {
   //   this.user.role = e.detail.value;
-  // }
+  // }S
 
   saveUser() {
-    this.http.post('http://175.24.88.62:8080/pcs/user/register.do', 
+    this.http.post('http://175.24.88.62:8080/pcs/user/register.do',
     {uNumber: this.userNumber, uName: this.userName, phone: this.userPhone, emaile: this.userMail, createDate: this.userDate, status: 1}, this.httpOptions)
       .subscribe(async response => {
-        this.response=response;
+        this.response = response;
         console.log(this.response);
-                    // console.log(response); 
-        if(this.response==1){
+        if (this.response.uId != null) {
           const toast = await this.toastCtrl.create({
                 message: '注册成功',
                 position: 'top',
@@ -123,7 +122,7 @@ export class RegisterPage implements OnInit {
           await toast.present();
           this.router.navigateByUrl('/login');
         }
-        else{
+        else {
           const toast = await this.toastCtrl.create({
             message: '注册失败',
             position: 'top',
