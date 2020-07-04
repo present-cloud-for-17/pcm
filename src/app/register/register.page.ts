@@ -113,7 +113,7 @@ export class RegisterPage implements OnInit {
         this.response=response;
         console.log(this.response);
                     // console.log(response); 
-        if(this.response.uId!=null){
+        if(this.response.data.user.uId!=null){
           alert('注册成功!');
           this.router.navigateByUrl('/login');
         }

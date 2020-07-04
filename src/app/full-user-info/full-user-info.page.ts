@@ -32,6 +32,7 @@ export class FullUserInfoPage implements OnInit {
   
   private httpOptions: any;
   private response : any;
+  private userStatus : any;
 
   ngOnInit() {
 
@@ -94,6 +95,12 @@ export class FullUserInfoPage implements OnInit {
   }
   checkRole(e) {
     this.isTeacher = e.detail.value;
+    if(this.isTeacher==1){
+      this.userStatus = 2;
+    }
+    if(this.isTeacher==0){
+      this.userStatus = 3;
+    }
   }
   savePerson(){
     this.http.post('http://175.24.88.62:8080/pcs/person/updateByPrimaryKey.do', 
@@ -111,6 +118,22 @@ export class FullUserInfoPage implements OnInit {
       else{
         alert('提交失败!');
       }
+    }, function(error){console.log(error);});
+
+    this.http.post('http://175.24.88.62:8080/pcs/user/updateByPrimaryKey.do', 
+      {uId: this.uId, status: this.userStatus},
+        this.httpOptions) 
+          .subscribe(response => {
+            this.response=response;
+              console.log(response);
+              if(this.response!=null)
+              {
+                console.log('用户状态修改成功!');
+              }
+              else
+              {
+                console.log('用户状态修改失败!');
+              }
     }, function(error){console.log(error);});
   }
 }
