@@ -1,0 +1,53 @@
+[33mcommit 956f964c20c9a624fc010b3fabeb663cbad819ce[m[33m ([m[1;36mHEAD -> [m[1;32mjk3[m[33m, [m[1;31morigin/wzw_v3[m[33m)[m
+Author: MMDJK <38125463+MMDJK@users.noreply.github.com>
+Date:   Sat Jul 4 14:19:30 2020 +0800
+
+    删除路由守护，修改注册接口
+
+[33mcommit c9d088ef54e1b72ba194dbb21e26948d049dbafc[m
+Author: MMDJK <38125463+MMDJK@users.noreply.github.com>
+Date:   Sat Jul 4 11:38:41 2020 +0800
+
+    修改退出登录时删除本地个人信息的存储以及修改班课信息学分和学时相同的问题
+
+[33mcommit e3363ca4fe7975566892e08eb1962f23bc32dafd[m
+Author: MMDJK <38125463+MMDJK@users.noreply.github.com>
+Date:   Fri Jul 3 18:45:21 2020 +0800
+
+    修改注册接口
+
+[33mcommit 6ee2520f24bcad4b4c8b591c43d718b37ddbf7c4[m
+Author: MMDJK <38125463+MMDJK@users.noreply.github.com>
+Date:   Fri Jul 3 15:48:57 2020 +0800
+
+    修改UI
+
+[33mcommit c4fe9190d1cc868d97a94366e5af884782e2d4bf[m
+Author: Christian9971 <zhewenwang971@gmail.com>
+Date:   Fri Jul 3 14:18:40 2020 +0800
+
+    router small change
+
+[33mcommit 74703bba7941bf54d6a5fa9d37d1e294e12f28c9[m
+Author: Christian9971 <zhewenwang971@gmail.com>
+Date:   Fri Jul 3 14:07:04 2020 +0800
+
+    small change
+
+[33mcommit c6f655ca160b18ee179b634a62f61b2b98d66595[m
+Author: Christian9971 <zhewenwang971@gmail.com>
+Date:   Thu Jul 2 18:33:42 2020 +0800
+
+    modify use-info\signResult
+
+[33mcommit 5af1816fa01202c50ae1563b8b0683fd11261f5d[m
+Author: Christian9971 <zhewenwang971@gmail.com>
+Date:   Thu Jul 2 15:07:56 2020 +0800
+
+    basic implementation
+
+[33mcommit 7a1d0f1801a7bad274eef741087870a48f297abc[m[33m ([m[1;31morigin/wzw_2[m[33m, [m[1;32mjk2[m[33m)[m
+Author: Christian9971 <zhewenwang971@gmail.com>
+Date:   Mon Jun 29 16:05:17 2020 +0800
+
+    change login and register pages

@@ -113,7 +113,7 @@ export class RegisterPage implements OnInit {
       .subscribe(async response => {
         this.response = response;
         console.log(this.response);
-        if (this.response.uId != null) {
+        if (this.response.data.user.uId != null) {
           const toast = await this.toastCtrl.create({
                 message: '注册成功',
                 position: 'top',
