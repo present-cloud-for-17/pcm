@@ -13,14 +13,19 @@ export class ToFriendPage implements OnInit {
   value = '';
 
   ngOnInit() {
-    // this.createCode();
+     this.createCode();
   }
   constructor(public localStorage: LocalStorageService,
   ) { }
-  // createCode() {
-  //     const code = '';
-  //     this.value = this.localStorage.getItem("user").phone.toString();
-  //     return this.value;
-  // }
+
+  createCode() {
+    const code = '';
+    for (let i = 0; i < 6; i++) {
+      const code = Math.floor(Math.random() * 10);
+      this.value += code.toString();
+    }
+    console.log(this.value);
+    return this.value;
+}
 
 }
