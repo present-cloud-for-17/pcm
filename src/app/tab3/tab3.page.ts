@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { LocalStorageService } from '../services/local-storage.service';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page  {
+export class Tab3Page  implements OnChanges {
 
   constructor(public localStorage: LocalStorageService) {}
 
@@ -14,7 +14,7 @@ export class Tab3Page  {
   public pNumber: any = this.localStorage.getItem('person').peNumber;
   public person: any;
 
-  ngOnInit() {
+  ngOnChanges() {
     this.person = this.localStorage.getItem('person');
     this.pName = this.person.peName;
     this.pNumber = this.person.peNumber;

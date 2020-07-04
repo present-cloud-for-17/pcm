@@ -22,6 +22,10 @@ export class SettingPage implements OnInit {
     const config = this.localStorageService.get('App', '');
     config.hasRun = false;
     this.localStorageService.set('App', config);
+    this.localStorageService.remove('peId');
+    this.localStorageService.remove('uId');
+    this.localStorageService.remove('person');
+    this.localStorageService.remove('token');
     this.router.navigateByUrl('/login');
   }
 }

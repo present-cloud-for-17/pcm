@@ -64,7 +64,7 @@ export class DetailClassPage implements OnInit {
         this.description = this.course.description;
         this.term = this.course.term;
         this.date = this.course.date;
-        this.credit = this.course.date;
+        this.credit = this.course.credit;
         this.dailyWeight = this.course.dailyWeight;
         this.finalWeight = this.course.finalWeight;
       },function(error){console.log(error);});
